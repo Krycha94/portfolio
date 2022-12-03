@@ -1,8 +1,11 @@
 //colors
-$color-font: #c4cfde;
+$color-font: hsl(215, 28%, 82%);
 $color-font-light: rgb(207, 207, 207);
-$color-bg: #212428;
-$color-primary: #f9004d;
+$color-bg: hsl(214, 10%, 14%);
+$color-primary: hsl(341, 100%, 49%);
 
 //fonts
 $font: "Poppins", sans-serif;
+
+//transitions
+$transition: 0.3s all ease-in-out;

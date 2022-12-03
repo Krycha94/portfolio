@@ -1,0 +1,53 @@
+@use "../variables" as v;
+@use "../breakpoints" as b;
+@use "../mixins" as m;
+
+.header {
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+	&__center {
+		@include m.container;
+		padding: 1.2rem 2rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		border-radius: 50%;
+		width: 60px;
+		@include b.breakpoint(md) {
+			width: 80px;
+		}
+	}
+
+	&__list {
+		display: none;
+		@include b.breakpoint(md) {
+			display: flex;
+			align-items: center;
+			gap: 3rem;
+			font-size: 1.2rem;
+		}
+		a {
+			transition: v.$transition;
+			&:hover,
+			&:active,
+			&:focus {
+				color: v.$color-primary;
+			}
+		}
+	}
+
+	&__hamburger {
+		font-size: 2rem;
+		transition: v.$transition;
+		&:hover,
+		&:focus,
+		&:active {
+			color: v.$color-primary;
+		}
+		@include b.breakpoint(md) {
+			display: none;
+		}
+	}
+}
