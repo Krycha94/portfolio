@@ -18,10 +18,12 @@
 	@include b.breakpoint(lg) {
 		h3 {
 			font-size: 3rem;
+			margin-bottom: 5rem;
 		}
 		p {
 			font-size: 1.4rem;
 			line-height: 1.5;
+			margin-bottom: 7rem;
 		}
 	}
 }

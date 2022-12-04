@@ -2,16 +2,16 @@
 @use "../variables" as v;
 
 .alice-carousel li {
-	padding: 2rem;
+	padding-right: 3rem;
 	transition: v.$transition;
 	@include b.breakpoint(md) {
-		padding: 3rem;
+		padding-right: 6rem;
 	}
 	@include b.breakpoint(lg) {
-		padding: 3rem;
+		padding-right: 6rem;
 	}
 	@include b.breakpoint(xl) {
-		padding: 4rem;
+		padding-right: 8rem;
 	}
 
 	&:hover {

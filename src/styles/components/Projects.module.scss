@@ -1,0 +1,96 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+@use "../breakpoints" as b;
+
+.projects {
+	h3 {
+		text-transform: capitalize;
+		letter-spacing: 2px;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		text-align: center;
+		@include b.breakpoint(lg) {
+			font-size: 3rem;
+			margin-bottom: 7rem;
+		}
+		@include b.breakpoint(xl) {
+			text-align: left;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 420px);
+		justify-content: center;
+		align-items: center;
+		gap: 4rem;
+	}
+
+	&__card {
+		box-shadow: v.$color-box-shadow;
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+
+	&__image {
+		position: relative;
+		&:hover .projects__links {
+			transform: translateY(0);
+		}
+	}
+
+	&__links {
+		background: rgba(17, 17, 17, 0.8);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: translateY(-100%);
+		transition: v.$transition;
+	}
+
+	&__linksCenter {
+		a {
+			padding: 1rem;
+			margin: 0 1rem;
+			font-size: 1.2rem;
+			letter-spacing: 2px;
+			color: v.$color-font-light;
+			transition: all 0.2s linear;
+
+			&:hover {
+				text-decoration: underline;
+				text-underline-offset: 0.5rem;
+				font-size: 1.3rem;
+			}
+		}
+	}
+
+	&__info {
+		padding: 2rem;
+
+		h4 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      @include b.breakpoint(xl) {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+      }
+		}
+	}
+
+  &__technologies {
+
+    span {
+      margin-right: 1rem;
+      border: 1px solid v.$color-font-light;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+    }
+  }
+}
