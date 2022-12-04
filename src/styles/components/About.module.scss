@@ -1,0 +1,27 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+@use "../breakpoints" as b;
+
+.about {
+	h3 {
+		text-transform: capitalize;
+		letter-spacing: 2px;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	p {
+		line-height: 1.5;
+		margin-bottom: 3rem;
+	}
+
+	@include b.breakpoint(lg) {
+		h3 {
+			font-size: 3rem;
+		}
+		p {
+			font-size: 1.4rem;
+			line-height: 1.5;
+		}
+	}
+}

@@ -1,4 +1,6 @@
-@use "variables" as v;
+@use "./variables" as v;
+@use "./mixins" as m;
+@use "./breakpoints" as b;
 
 *,
 *::before,
@@ -19,6 +21,7 @@ body {
 	background-color: v.$color-bg;
 	color: v.$color-font;
 	font-family: v.$font;
+	line-height: 1.5;
 }
 
 img,
@@ -47,6 +50,12 @@ h6 {
 	overflow-wrap: break-word;
 }
 
+h1,
+h2,
+h3 {
+	line-height: 1.3;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -61,4 +70,17 @@ button {
 	color: v.$color-font-light;
 	border: none;
 	cursor: pointer;
+}
+
+main {
+	padding: 0 2rem;
+}
+
+section {
+	@include m.container;
+	padding: 3rem 0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	@include b.breakpoint(md) {
+		padding: 7rem 0;
+	}
 }

@@ -1,0 +1,20 @@
+@use "../breakpoints" as b;
+@use "../variables" as v;
+
+.alice-carousel li {
+	padding: 2rem;
+	transition: v.$transition;
+	@include b.breakpoint(md) {
+		padding: 3rem;
+	}
+	@include b.breakpoint(lg) {
+		padding: 3rem;
+	}
+	@include b.breakpoint(xl) {
+		padding: 4rem;
+	}
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
