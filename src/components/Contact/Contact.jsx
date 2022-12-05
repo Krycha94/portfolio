@@ -27,13 +27,13 @@ const Contact = () => {
 				.required("Message is Required"),
 		}),
 		onSubmit: (values, { resetForm }) => {
-			alert(JSON.stringify(values, null, 2));
+			//todo modal
 			resetForm();
 		},
 	});
 
 	return (
-		<section className={styles.contact}>
+		<section id="contact" className={styles.contact}>
 			<h3>Contact with me</h3>
 			<form className={styles.contact__form} onSubmit={formik.handleSubmit}>
 				{/* name */}

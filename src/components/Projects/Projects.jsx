@@ -54,7 +54,7 @@ const dummyProjects = [
 
 const Projects = () => {
 	return (
-		<section className={styles.projects}>
+		<section id="projects" className={styles.projects}>
 			<h3>My Projects</h3>
 			<ul className={styles.projects__grid}>
 				{dummyProjects.map((project) => (

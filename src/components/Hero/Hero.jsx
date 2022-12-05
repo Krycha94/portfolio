@@ -1,10 +1,10 @@
 import styles from "../../styles/components/Hero.module.scss";
 import image from "../../assets/krystian-pic.png";
-import { socialLinks } from "../../utils/social-links";
+import SocialLinks from "./SocialLinks";
 
 const Hero = () => {
 	return (
-		<section className={styles.hero} id="home">
+		<section id="home" className={styles.hero}>
 			<div className={styles.hero__text}>
 				<h1>
 					Hi, <span>I'm Krystian</span>
@@ -14,15 +14,7 @@ const Hero = () => {
 					Experienced in building responsive and accessible websites with React.
 				</p>
 				<div className={styles.hero__links}>
-					<ul>
-						{socialLinks.map((link) => (
-							<li key={link.id}>
-								<a target="_blank" href={link.address}>
-									{link.icon}
-								</a>
-							</li>
-						))}
-					</ul>
+					<SocialLinks />
 				</div>
 			</div>
 			<div className={styles.hero__image}>

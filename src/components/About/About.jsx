@@ -3,7 +3,7 @@ import Technologies from "./Technologies"
 
 const About = () => {
 	return (
-		<section className={styles.about}>
+		<section id="about" className={styles.about}>
 			<h3>About me</h3>
 			<p>
 				Hi, my name is Krystian, I live in Bydgoszcz and I want to become a

@@ -17,7 +17,6 @@
 		h2 {
 			font-size: 2.3rem;
 			font-weight: 600;
-			// color: v.$color-font-light;
 		}
 		p {
 			margin-top: 1.5rem;
@@ -48,7 +47,9 @@
 			color: v.$color-font-light;
 			transition: v.$transition;
 
-			&:hover {
+			&:hover,
+			&:active,
+			&:focus {
 				color: v.$color-primary;
 			}
 		}

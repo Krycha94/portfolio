@@ -60,7 +60,9 @@
 		letter-spacing: 1px;
 		transition: v.$transition;
 
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
 			color: v.$color-primary;
 		}
 	}
