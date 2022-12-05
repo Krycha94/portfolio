@@ -1,27 +1,68 @@
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import styles from "../../styles/components/Contact.module.scss";
 
 const Contact = () => {
+	const formik = useFormik({
+		initialValues: {
+			name: "",
+			email: "",
+			subject: "",
+			message: "",
+		},
+		validationSchema: Yup.object({
+			name: Yup.string()
+				.min(2, "Must be 2 characters or more")
+				.max(15, "Must be 15 characters or less")
+				.required("Name is Required"),
+			email: Yup.string().required("Email is Required").email(),
+			subject: Yup.string()
+				.min(4, "Must be 4 characters or more")
+				.max(30, "Must be 30 characters or less")
+				.required("Subject is Required"),
+			message: Yup.string()
+				.min(4, "Must be 4 characters or more")
+				.max(400, "Must be 400 characters or less")
+				.required("Message is Required"),
+		}),
+		onSubmit: (values, { resetForm }) => {
+			alert(JSON.stringify(values, null, 2));
+			resetForm();
+		},
+	});
+
 	return (
 		<section className={styles.contact}>
 			<h3>Contact with me</h3>
-			<form className={styles.contact__form}>
+			<form className={styles.contact__form} onSubmit={formik.handleSubmit}>
 				{/* name */}
 				<div className={styles.contact__control}>
 					<label htmlFor="name">Your Name</label>
-					<input type="text" id="name" />
-					<p>Error name</p>
+					<input id="name" type="text" {...formik.getFieldProps("name")} />
+					{formik.touched.name && formik.errors.name ? (
+						<p>{formik.errors.name}</p>
+					) : null}
 				</div>
 				{/* email */}
 				<div className={styles.contact__control}>
 					<label htmlFor="email">Email</label>
-					<input type="email" id="email" />
-					<p>Error email</p>
+					<input id="email" type="email" {...formik.getFieldProps("email")} />
+					{formik.touched.email && formik.errors.email ? (
+						<p>{formik.errors.email}</p>
+					) : null}
 				</div>
 				{/* subject */}
 				<div className={styles.contact__control}>
 					<label htmlFor="subject">Subject</label>
-					<input type="text" id="subject" />
-					<p>Error subject</p>
+					<input
+						id="subject"
+						type="text"
+						{...formik.getFieldProps("subject")}
+					/>
+					{formik.touched.subject && formik.errors.subject ? (
+						<p>{formik.errors.subject}</p>
+					) : null}
 				</div>
 				{/* message */}
 				<div className={styles.contact__control}>
@@ -30,16 +71,16 @@ const Contact = () => {
 						id="message"
 						rows={10}
 						cols={50}
-						// name="description"
-						// onChange={formik.handleChange}
-						// onBlur={formik.handleBlur}
-						// value={formik.values.description}
-						// {...formik.getFieldProps("description")}
+						{...formik.getFieldProps("message")}
 					/>
-					<p>Error message</p>
+					{formik.touched.message && formik.errors.message ? (
+						<p>{formik.errors.message}</p>
+					) : null}
 				</div>
 
-				<button type="submit" className={styles.contact__button}>Submit</button>
+				<button type="submit" className={styles.contact__button}>
+					Submit
+				</button>
 			</form>
 		</section>
 	);
