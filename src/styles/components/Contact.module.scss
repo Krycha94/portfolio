@@ -1,0 +1,67 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+@use "../breakpoints" as b;
+
+.contact {
+	h3 {
+		text-transform: capitalize;
+		letter-spacing: 2px;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		text-align: center;
+		@include b.breakpoint(lg) {
+			font-size: 3rem;
+			margin-bottom: 7rem;
+		}
+	}
+
+	&__form {
+		box-shadow: v.$color-box-shadow;
+		padding: 2rem;
+		border-radius: 1rem;
+		max-width: 600px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	&__control {
+		label {
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+		}
+		input,
+		textarea {
+			background-color: #191b1e;
+			color: v.$color-font;
+			display: block;
+			width: 100%;
+			margin: 0.8rem 0 0.5rem 0;
+			padding: 1rem;
+			border-radius: 0.4rem;
+			border: 0;
+			letter-spacing: 1px;
+			transition: v.$transition;
+		}
+		textarea {
+			resize: none;
+		}
+		p {
+			color: v.$color-primary;
+		}
+	}
+
+	&__button {
+		background-color: #191b1e;
+		padding: 1rem;
+		border-radius: 0.4rem;
+		border: 0;
+		letter-spacing: 1px;
+		transition: v.$transition;
+
+		&:hover {
+			color: v.$color-primary;
+		}
+	}
+}
