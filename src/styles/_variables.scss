@@ -1,9 +1,9 @@
 //colors
 $color-font: hsl(215, 28%, 82%);
-$color-font-light: rgb(207, 207, 207);
+$color-font-light: hsl(0, 0%, 81%);
 $color-bg: hsl(214, 10%, 14%);
 $color-primary: hsl(341, 100%, 49%);
-$color-box-shadow: 5px 5px 10px #1c1e22,-5px -5px 10px #262a2e;
+$color-box-shadow: 5px 5px 10px hsl(220, 10%, 12%), -5px -5px 10px hsl(210, 10%, 16%);
 
 //fonts
 $font: "Poppins", sans-serif;

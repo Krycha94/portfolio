@@ -1,5 +1,7 @@
 import styles from "../../styles/components/Projects.module.scss";
 import projectImage from "../../assets/project-1.png";
+import { motion } from "framer-motion";
+import { sectionVariants } from "../../utils/variants";
 
 const dummyProjects = [
 	{
@@ -54,7 +56,7 @@ const dummyProjects = [
 
 const Projects = () => {
 	return (
-		<section id="projects" className={styles.projects}>
+		<motion.section id="projects" className={styles.projects} variants={sectionVariants} initial="hidden" whileInView="visible">
 			<h3>My Projects</h3>
 			<ul className={styles.projects__grid}>
 				{dummyProjects.map((project) => (
@@ -81,7 +83,7 @@ const Projects = () => {
 					</li>
 				))}
 			</ul>
-		</section>
+		</motion.section>
 	);
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
+import styles from "../../styles/components/Contact.module.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import styles from "../../styles/components/Contact.module.scss";
+import { motion } from "framer-motion";
+import { sectionVariants } from "../../utils/variants";
 
-const Contact = () => {
+const Contact = ({ onOpenModal }) => {
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -27,13 +29,19 @@ const Contact = () => {
 				.required("Message is Required"),
 		}),
 		onSubmit: (values, { resetForm }) => {
-			//todo modal
+			onOpenModal();
 			resetForm();
 		},
 	});
 
 	return (
-		<section id="contact" className={styles.contact}>
+		<motion.section
+			id="contact"
+			className={styles.contact}
+			variants={sectionVariants}
+			initial="hidden"
+			whileInView="visible"
+		>
 			<h3>Contact with me</h3>
 			<form className={styles.contact__form} onSubmit={formik.handleSubmit}>
 				{/* name */}
@@ -82,7 +90,7 @@ const Contact = () => {
 					Submit
 				</button>
 			</form>
-		</section>
+		</motion.section>
 	);
 };
 

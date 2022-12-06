@@ -1,10 +1,18 @@
 import styles from "../../styles/components/Hero.module.scss";
 import image from "../../assets/krystian-pic.png";
 import SocialLinks from "./SocialLinks";
+import { motion } from "framer-motion";
+import { heroVariants } from "../../utils/variants";
 
 const Hero = () => {
 	return (
-		<section id="home" className={styles.hero}>
+		<motion.section
+			id="home"
+			className={styles.hero}
+			variants={heroVariants}
+			initial="hidden"
+			whileInView={"visible"}
+		>
 			<div className={styles.hero__text}>
 				<h1>
 					Hi, <span>I'm Krystian</span>
@@ -20,7 +28,7 @@ const Hero = () => {
 			<div className={styles.hero__image}>
 				<img src={image} alt="photo shows me" />
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
